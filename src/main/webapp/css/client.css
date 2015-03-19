@@ -9,9 +9,13 @@
   padding: 20px 0;
 }
 
+/* 
+*
+*
+*/
 .container {
   width: 100%;
-  max-width: 1020px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -43,7 +47,7 @@
 .card {
   position: relative;
   float: left;
-  padding-bottom: 10%;
+  padding-bottom: 9.1%;
   width: 100px;
   text-align: center;
 }
@@ -51,7 +55,7 @@
 .card_angled {
   position: relative;
   float: left;
-  padding-bottom: 10%;
+  padding-bottom: 9.1%;
   width: 100px;
   background-color: #fff;
   margin-left: 1px;
@@ -70,7 +74,8 @@
 .card:nth-child(6),
 .card:nth-child(7),
 .card:nth-child(8),
-.card:nth-child(9) {
+.card:nth-child(9),
+.card:nth-child(10) {
   margin-right: 1px;
 }
 
