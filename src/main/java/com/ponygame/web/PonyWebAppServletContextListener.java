@@ -1,4 +1,4 @@
-package com.ponygame;
+package com.ponygame.web;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
