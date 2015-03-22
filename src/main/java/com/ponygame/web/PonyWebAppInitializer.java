@@ -1,8 +1,9 @@
 package com.ponygame.web;
 
-import com.ponygame.BasicServlet;
 import org.apache.log4j.Logger;
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -14,13 +15,22 @@ import javax.servlet.ServletRegistration;
  * we need this class which sets path to spring config xml and creates/adds Spring's DispatcherServlet
  */
 public class PonyWebAppInitializer implements WebApplicationInitializer {
-    private static Logger LOGGER = Logger.getLogger(BasicServlet.class);
+    private static Logger LOGGER = Logger.getLogger(PonyWebAppInitializer.class);
 
     @Override
-    public void onStartup(ServletContext container) {
+    public void onStartup(ServletContext servletContext) {
+        // Create Spring's WebApplicationContext and set config location
         XmlWebApplicationContext appContext = new XmlWebApplicationContext();
         appContext.setConfigLocation("/WEB-INF/classes/spring/all-beans.xml");
-        ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher", new DispatcherServlet(appContext));
+
+        // Goal of these listeners is to couple lifecycle of ServletContext with Spring's ApplicationContext.
+        // ContextLoaderListener is called by ServletContext to do main work for initialization of Spring's ApplicationContext -
+        // beans loading
+        servletContext.addListener(new ContextLoaderListener(appContext));
+        // Goal of RequestContextListener is to request-scope beans
+        servletContext.addListener(new RequestContextListener());
+
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(appContext));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
 
