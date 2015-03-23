@@ -1,11 +1,10 @@
 package com.ponygame.controller;
 
 import com.ponygame.model.TestBean;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,23 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
 @Controller
-@Component
 public class HomePageController {
+    private static Logger LOGGER = Logger.getLogger(HomePageController.class);
 
     @Autowired
-    TestBean testBean;
+    private TestBean testBean;
 
     @RequestMapping(value = "/homepage")
-    @ResponseBody
     public ModelAndView handleHomePage(HttpServletRequest req, HttpServletResponse resp) {
+        LOGGER.debug("Handling request query: " + req.getQueryString());
 
-        return new ModelAndView("homePageTemplate").
-                addAllObjects(new HashMap<String, Object>() {{
-                            put("testVariable", testBean);
-                        }});
-    }
+        ModelAndView result = new ModelAndView("homePageTemplate");
 
-    public void setTestBean(TestBean testBean) {
-        this.testBean = testBean;
+        result.addAllObjects(new HashMap<String, Object>() {{
+            put("testVariable", testBean);
+        }});
+
+        return result;
     }
 }

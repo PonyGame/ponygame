@@ -1,9 +1,5 @@
 package com.ponygame.model;
 
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
-
-@Component
 public class TestBean {
     private String field;
 

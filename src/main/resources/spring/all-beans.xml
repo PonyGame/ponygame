@@ -12,14 +12,15 @@
 
     <context:component-scan base-package="com.ponygame.controller"/>
     <context:component-scan base-package="com.ponygame.model"/>
+    <context:component-scan base-package="com.ponygame.websocket"/>
 
     <!-- Velocity engine configuration -->
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+    <bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="suffix" value=".vtl"/>
     </bean>
 
-    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+    <bean class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
         <property name="resourceLoaderPath" value="/WEB-INF/classes/templates"/>
     </bean>
 
