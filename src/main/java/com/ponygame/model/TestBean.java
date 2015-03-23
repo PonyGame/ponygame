@@ -1,13 +1,13 @@
 package com.ponygame.model;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TestBean {
     private String field;
-    private static Logger LOGGER = Logger.getLogger(TestBean.class);
 
     public TestBean(String field) {
-        LOGGER.debug("TestBean is created successfully");
         this.field = field;
     }
 
