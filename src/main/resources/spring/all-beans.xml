@@ -26,7 +26,7 @@
 
     <!-- Test bean -->
 
-    <bean id="testBean" class="com.ponygame.model.TestBean" scope="request">
+    <bean id="testBean" class="com.ponygame.model.TestBean">
         <constructor-arg index="0" value="test value"/>
     </bean>
 
