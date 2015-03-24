@@ -1,57 +1,20 @@
-alert("In socket client js");
+var webSocket = new WebSocket('ws://localhost:9090/ponygame/websocket');
 
-var wsUri = "ws://localhost/websocket-handler";
-var output;
+document.getElementById("sendButton").onclick = function() {
+    webSocket.send(document.getElementById("inputText").value);
+};
 
-function init() {
-    output = document.getElementById("output");
-    testWebSocket();
-}
+webSocket.onopen = function(event) {
+};
 
-function testWebSocket() {
-    websocket = new WebSocket(wsUri);
-    websocket.onopen = function (evt) {
-        onOpen(evt)
-    };
-    websocket.onclose = function (evt) {
-        onClose(evt)
-    };
-    websocket.onmessage = function (evt) {
-        onMessage(evt)
-    };
-    websocket.onerror = function (evt) {
-        onError(evt)
-    };
-}
+webSocket.onmessage = function(event) {
+    document.getElementById("output").innerHTML += event.data + "<br/>";
+};
 
-function onOpen(evt) {
-    writeToScreen("CONNECTED");
-    doSend("WebSocket rocks");
-}
+webSocket.onclose = function(event) {
+    alert('onclose');
+};
 
-function onClose(evt) {
-    writeToScreen("DISCONNECTED");
-}
-
-function onMessage(evt) {
-    writeToScreen('<span style="color: blue;">RESPONSE: ' + evt.data + '</span>');
-    websocket.close();
-}
-
-function onError(evt) {
-    writeToScreen('<span style="color: red;">ERROR:</span> ' + evt.data);
-}
-
-function doSend(message) {
-    writeToScreen("SENT: " + message);
-    websocket.send(message);
-}
-
-function writeToScreen(message) {
-    var pre = document.createElement("p");
-    pre.style.wordWrap = "break-word";
-    pre.innerHTML = message;
-    output.appendChild(pre);
-}
-
-window.addEventListener("load", init, false);
+webSocket.onerror = function(event) {
+    alert('onerror');
+};

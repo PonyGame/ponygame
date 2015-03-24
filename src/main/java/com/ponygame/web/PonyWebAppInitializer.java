@@ -32,7 +32,10 @@ public class PonyWebAppInitializer implements WebApplicationInitializer {
 
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(appContext));
         dispatcher.setLoadOnStartup(1);
+        // We need separate context for Controllers mappings
         dispatcher.addMapping("/homepage");
+        // We need separate context for WebSockets support
+        dispatcher.addMapping("/websocket");
 
         LOGGER.debug("On startup by web app initializer");
     }

@@ -1,6 +1,6 @@
 package com.ponygame.controller;
 
-import com.ponygame.model.TestBean;
+import com.ponygame.model.Room;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,19 +15,10 @@ import java.util.HashMap;
 public class HomePageController {
     private static Logger LOGGER = Logger.getLogger(HomePageController.class);
 
-    @Autowired
-    private TestBean testBean;
-
     @RequestMapping(value = "/homepage")
     public ModelAndView handleHomePage(HttpServletRequest req, HttpServletResponse resp) {
         LOGGER.debug("Handling request query: " + req.getQueryString());
-
         ModelAndView result = new ModelAndView("homePageTemplate");
-
-        result.addAllObjects(new HashMap<String, Object>() {{
-            put("testVariable", testBean);
-        }});
-
         return result;
     }
 }

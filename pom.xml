@@ -39,9 +39,8 @@
     <profiles>
         <profile>
             <id>deploy</id>
-            <!-- Default values for depoying, could be overriden by using
-                 -D{property}={value} f.e. -Dhost=192.168.1.1
-            -->
+            <!-- Default values for deploying, could be overriden by using -D{property}={value}
+                 f.e. -Dhost=192.168.1.1  -->
             <properties>
                 <username>deployuser</username>
                 <password>deployuser</password>
@@ -111,7 +110,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-websocket</artifactId>
-            <version>4.1.2.RELEASE</version>
+            <version>4.1.4.RELEASE</version>
         </dependency>
 
         <dependency>
