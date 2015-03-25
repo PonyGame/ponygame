@@ -39,6 +39,15 @@
     <profiles>
         <profile>
             <id>deploy</id>
+            <!-- Default values for deploying, could be overriden by using -D{property}={value}
+                 f.e. -Dhost=192.168.1.1  -->
+            <properties>
+                <username>deployuser</username>
+                <password>deployuser</password>
+                <host>localhost</host>
+                <protocol>http</protocol>
+                <port>8080</port>
+            </properties>
 
             <build>
                 <plugins>
@@ -63,11 +72,11 @@
                             <configuration>
                                 <type>runtime</type>
                                 <properties>
-                                    <cargo.remote.username>deployuser</cargo.remote.username>
-                                    <cargo.remote.password>deployuser</cargo.remote.password>
-                                    <cargo.hostname>localhost</cargo.hostname>
-                                    <cargo.protocol>http</cargo.protocol>
-                                    <cargo.servlet.port>9090</cargo.servlet.port>
+                                    <cargo.remote.username>${username}</cargo.remote.username>
+                                    <cargo.remote.password>${password}</cargo.remote.password>
+                                    <cargo.hostname>${host}</cargo.hostname>
+                                    <cargo.protocol>${protocol}</cargo.protocol>
+                                    <cargo.servlet.port>${port}</cargo.servlet.port>
                                 </properties>
                             </configuration>
 
@@ -100,8 +109,26 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>4.1.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>4.1.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>4.1.2.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
         </dependency>
 
         <dependency>
