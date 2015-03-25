@@ -15,16 +15,28 @@
     <context:component-scan base-package="com.ponygame.controller"/>
     <context:component-scan base-package="com.ponygame.model"/>
     <context:component-scan base-package="com.ponygame.websocket"/>
+    <context:component-scan base-package="com.ponygame.engine"/>
 
     <!-- Velocity engine configuration -->
+
+    <bean id="velocityEngineFactoryBean" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">file</prop>
+                <prop key="file.resource.loader.class">org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader</prop>
+                <prop key="file.resource.loader.cache">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="com.ponygame.velocity.CustomVelocityConfigurer">
+        <property name="velocityEngine" ref="velocityEngineFactoryBean"/>
+    </bean>
 
     <bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="suffix" value=".vtl"/>
     </bean>
 
-    <bean class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-        <property name="resourceLoaderPath" value="/WEB-INF/classes/templates"/>
-    </bean>
 
     <!-- WebSockets config -->
 

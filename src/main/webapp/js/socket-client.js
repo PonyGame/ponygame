@@ -1,4 +1,5 @@
-var webSocket = new WebSocket('ws://localhost:9090/ponygame/websocket');
+var wshost = 'ws://' +  window.location.host + '/ponygame/websocket';
+var webSocket = new WebSocket(wshost);
 
 document.getElementById("sendButton").onclick = function() {
     webSocket.send(document.getElementById("inputText").value);
@@ -12,9 +13,9 @@ webSocket.onmessage = function(event) {
 };
 
 webSocket.onclose = function(event) {
-    alert('onclose');
+
 };
 
 webSocket.onerror = function(event) {
-    alert('onerror');
+
 };
