@@ -47,15 +47,15 @@
   width: 100px;
   text-align: center;
 }
-/* 
-.card:nth-child(0),
-.card:nth-child(8),
-.card:nth-child(72),
-.card:nth-child(80)
+
+.card:nth-child(6),
+.card:nth-child(56),
+.card:nth-child(66),
+.card:nth-child(116)
 {
-  background-color: #fff;
+  background-color: plum;
 }
-*/
+
 
 /* card fronts and backs */
 .card__front,
@@ -86,8 +86,8 @@
           transform: rotateY(-180deg);
 }
 
-.card__front:hover{
-   box-sizing:border-box;
+.card__front:hover {
+  box-sizing:border-box;
   -moz-box-sizing:border-box;
   -webkit-box-sizing:border-box;
   width:100px;
