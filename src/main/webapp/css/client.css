@@ -1,34 +1,18 @@
-.wrapper {
-  width: 100%;
-  margin: 0 auto;
-    
-
-}
 
 .main {
   display: block;
   background-color: #fff;
-  padding: 20px 0;
+  padding-top: 100px;
 }
 
-
-
-/* 
-*
-*
-*/
-.container {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
+.gameboard {
+  position:static;
+  width: 1200px;
   padding: 0 20px;
 }
 
-.wallpaper {
-  position: relative;
-  width: 1120px;
-  height: 1120px;
-  margin: 0 auto;
+.col-right {
+   padding-left:1200px; 
 }
 
 /**
@@ -42,10 +26,9 @@
   position: relative;
   margin-bottom: 1px;
   float: left;
-  padding-bottom: 9.1%;
-  padding-left: 1px;
+  padding-bottom: 8.7%;
+  margin-left: 1px;
   width: 100px;
-  text-align: center;
 }
 
 .card:nth-child(6),

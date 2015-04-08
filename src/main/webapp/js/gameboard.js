@@ -5,7 +5,7 @@
 
 
 function createTable() {
-    var container = document.getElementById('container');
+    var gameboard = document.getElementById('gameboard');
 
     for(var i=0;i<11;i++){
         for (var j=0;j<11;j++) {
@@ -29,7 +29,7 @@ function createTable() {
                 cell.appendChild(card_front);
                 cell.appendChild(card_back);
             }
-            container.appendChild(cell);
+            gameboard.appendChild(cell);
         }
     }
 }
