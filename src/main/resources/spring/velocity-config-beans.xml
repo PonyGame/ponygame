@@ -22,6 +22,7 @@
     <bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
         <property name="viewClass" value="com.ponygame.velocity.PonyVelocityView"/>
         <property name="suffix" value=".vtl"/>
+        <property name="prefix" value="templates/"/>
     </bean>
 
 </beans>

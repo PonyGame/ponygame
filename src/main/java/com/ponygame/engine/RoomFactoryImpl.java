@@ -9,15 +9,9 @@ import org.springframework.stereotype.Component;
 public class RoomFactoryImpl implements RoomFactory {
 
     @Override
-    public Room createRoom(User... users) {
+    public Room createRoom(User user) {
         Room room = new RoomImpl();
-        for (int i = 0; i < users.length; i++) {
-            if (room.isReadyToJoin()) {
-                room.join(users[i]);
-            } else {
-                break;
-            }
-        }
+        room.join(user);
         return room;
     }
 }
