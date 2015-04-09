@@ -6,13 +6,13 @@
 
 function selectUnit(cell) {
     websocket.send(cell);
-    
+
 }
 
 function selectCard(card, unit) {
     if (card.isAvailable()) {
-        
-    } 
+
+    }
     if (card.isOpen()) {
         unit.move(card);
     } else {
@@ -42,5 +42,13 @@ function clickListener(card) {
     });
 }
 
+
+function toggleVisibility(id) {
+    var e = document.getElementById(id);
+    if (e.style.display == 'block')
+        e.style.display = 'none';
+    else
+        e.style.display = 'block';
+}
 
 
