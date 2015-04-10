@@ -5,6 +5,6 @@ import com.ponygame.model.User;
 
 public interface RoomFactory {
 
-    Room createRoom(User... users);
+    Room createRoom(User user);
 
 }

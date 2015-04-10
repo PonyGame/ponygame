@@ -9,6 +9,8 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
+import javax.servlet.SessionTrackingMode;
+import java.util.HashSet;
 
 /**
  * To avoid using of web.xml at all and at the same time to be able to initialize Spring's ApplicationContext
@@ -30,6 +32,9 @@ public class PonyWebAppInitializer implements WebApplicationInitializer {
         // Goal of RequestContextListener is to request-scope beans
         servletContext.addListener(new RequestContextListener());
 
+        servletContext.setSessionTrackingModes(new HashSet<SessionTrackingMode>() {{
+            add(SessionTrackingMode.COOKIE);
+        }});
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(appContext));
         dispatcher.setLoadOnStartup(1);
         // We need separate context for Controllers mappings
