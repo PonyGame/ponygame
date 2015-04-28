@@ -33,7 +33,7 @@ public class HomePageController extends AbstractGameController {
             model.put("user", session.getAttribute(USER_ATTRIBUTE));
             result = new ModelAndView("board", model);
         } else {
-            result = new ModelAndView(REDIRECT + loginUrl);
+            result = new ModelAndView(REDIRECT_PREFIX + loginUrl);
         }
         return result;
     }
