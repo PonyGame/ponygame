@@ -1,0 +1,93 @@
+.main {
+    display: block;
+    background-color: #fff;
+    padding-top: 100px;
+    padding-left: 20px;
+}
+
+.wrapper {
+    position:static;
+}
+
+.gameboard {
+    float: left;
+    position:static;
+    width: 900px;
+    height: 900px;
+    padding: 0 20px;
+}
+
+
+/**
+ * The cards
+ *
+ * Each card plays home to a front and back. I've set them up as squares here
+ * by using the padding technique, but you may set them up in any dimensions
+ * you like based on your site design.
+ */
+.card {
+    position: relative;
+    margin-bottom: 1px;
+    float: left;
+    padding-bottom: 8.9%;
+    margin-left: 1px;
+    width: 80px;
+}
+
+.card:nth-child(6),
+.card:nth-child(56),
+.card:nth-child(66),
+.card:nth-child(116)
+{
+    background-color: plum;
+}
+
+
+/* card fronts and backs */
+.card__front,
+.card__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+}
+
+.card__front,
+.card__back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.card__front {
+    /* background: url("../images/clouds2.jpg"); */
+    background-color: pink;
+}
+
+.card__back {
+    background: url("../img/3apples_small2.jpg");
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.card__front:hover {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    width:80px;
+    height:80px;
+    border:3px solid white;
+}
+
+/* click effect */
+.card.effect__click.flipped .card__front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.card.effect__click.flipped .card__back {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+}
