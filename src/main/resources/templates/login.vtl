@@ -4,5 +4,10 @@
 
     <button>Login</button>
 
+    #if ($loginCredentialsInfo)
+        <br>Input was invalid! Information: $loginCredentialsInfo.getMainMessage()
+        <br>Additional info: $loginCredentialsInfo.getAdditinalInformation()
+    #end
+
 </form>
 
