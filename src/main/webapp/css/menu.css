@@ -1,0 +1,23 @@
+.menu-window{
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 0 7px 0 7px;
+}
+
+.menu-window > header {
+
+  background-color: plum;
+  font-weight: bold;
+  text-align: center;
+  height: 40px;
+  border-bottom: 1px;
+  font-size: 30px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: 0 -7px 0 -7px;
+}
+
+.menu-window section {
+  margin: 15px 7px;
+}
