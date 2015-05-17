@@ -4,6 +4,10 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 
+body {
+	background: #f3f3f3;
+}
+
 p {
 	margin: 0 0 10px;
 }
@@ -13,7 +17,7 @@ p {
 	padding-left: 15px;
 	margin-left: auto;
 	margin-right: auto;
-	min-width: 750px;
+	min-width: 880px;
 }
 
 @media (min-width: 768px) {
@@ -732,10 +736,12 @@ p {
 */
 .navbar {
 	position: relative;
-	min-height: 50px;
+	min-height: 100px;
+	min-width: 880px;
 	margin-bottom: 20px;
 	border: 1px solid transparent;
 	border-radius: 4px;
+	background-color: #B1ECFF;
 }
 
 
@@ -747,7 +753,6 @@ p {
 .navbar-brand {
 	float: left;
 	height: 50px;
-	padding: 15px 15px;
 	font-size: 18px;
 	line-height: 20px;
 }
@@ -763,6 +768,7 @@ p {
 	float: left !important;
 }
 .navbar-right {
+	margin-top: 30px;
 	float: right !important;
 }
 
@@ -774,24 +780,24 @@ p {
 */
 
 .btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
 
 
