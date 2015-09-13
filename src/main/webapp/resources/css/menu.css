@@ -67,12 +67,18 @@
 
 
 .btn-select {
-  font-size: 30px;
-  color: #fff;
-  background-color: transparent ;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline:none;
 }
 .btn-select > p {
   white-space: normal;
+}
+
+.btn-select:focus { 
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter:         drop-shadow(5px 5px 5px #222); 
 }
 
 .btn-submit {
