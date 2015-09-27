@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class LoginPageController extends AbstractGameController {
@@ -21,12 +20,12 @@ public class LoginPageController extends AbstractGameController {
     private String urlRoot;
 
     @RequestMapping(value = "${url.login}", method = RequestMethod.GET)
-    public ModelAndView loginPage(HttpServletRequest req, HttpServletResponse resp) {
+    public ModelAndView loginPage(HttpServletRequest req) {
         return new ModelAndView(isLoggedIn(req.getSession()) ? REDIRECT_PREFIX + urlRoot : LOGIN_VIEW_PATH);
     }
 
     @RequestMapping(value = "${url.login}", method = RequestMethod.POST)
-    public ModelAndView checkCredentials(HttpServletRequest req, HttpServletResponse resp) {
+    public ModelAndView checkCredentials(HttpServletRequest req) {
         ModelAndView modelAndView = new ModelAndView();
         String userName = req.getParameter(USER_NAME_PARAMETER);
         String userPassword = req.getParameter(USER_PASSWORD_PARAMETER);
