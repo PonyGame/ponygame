@@ -1,7 +1,7 @@
 .idea/*
 
 target/*
-
+nb-configuration.xml
 
 *.iml
 *.iml
