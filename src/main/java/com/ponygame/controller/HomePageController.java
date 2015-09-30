@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class HomePageController extends AbstractGameController {
+public class HomePageController {
     private static final Logger LOGGER = Logger.getLogger(HomePageController.class);
 
     @Autowired
@@ -29,13 +29,6 @@ public class HomePageController extends AbstractGameController {
 
     @RequestMapping(value = "${url.root}/**")
     public ModelAndView handleHomePage(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
-        ModelAndView result = null;
-
-        Map<String, Object> model = new HashMap<>();
-        model.put("user", session.getAttribute(USER_ATTRIBUTE));
-        result = new ModelAndView("index", model);
-
-        return result;
+        return new ModelAndView("index");
     }
-
 }

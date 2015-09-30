@@ -39,8 +39,12 @@
     <profiles>
         <profile>
             <id>deploy</id>
-            <!-- Default values for deploying, could be overriden by using -D{property}={value}
-                 f.e. -Dhost=192.168.1.1  -->
+            <!-- Default values for deploying, could be overridden by using -D{property}={value} f.e. -Dhost=192.168.1.1
+                 It's necessary to have tomcat user with added 'manager-script' role,
+                 config can be found in $TOMCAT_HOME/conf/tomcat-user.xml
+                 line should look like:
+                 <user username="<username>" password="<password>" roles="manager-script"/>
+                 -->
             <properties>
                 <username>deployuser</username>
                 <password>deployuser</password>
