@@ -1,1 +1,1 @@
-<h1>index !</h1>
+<h1>Index page, user is logged in</h1>

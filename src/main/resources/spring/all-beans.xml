@@ -17,6 +17,7 @@
 
     <context:property-placeholder location="classpath:properties/*" />
 
+    <context:component-scan base-package="com.ponygame.web"/>
     <context:component-scan base-package="com.ponygame.controller"/>
     <context:component-scan base-package="com.ponygame.model"/>
     <context:component-scan base-package="com.ponygame.websocket"/>

@@ -1,4 +1,4 @@
-package com.ponygame.web;
+package com.ponygame.initializer;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.WebApplicationInitializer;
@@ -16,8 +16,8 @@ import java.util.HashSet;
  * To avoid using of web.xml at all and at the same time to be able to initialize Spring's ApplicationContext
  * we need this class which sets path to spring config xml and creates/adds Spring's DispatcherServlet
  */
-public class PonyWebAppInitializer implements WebApplicationInitializer {
-    private static Logger LOGGER = Logger.getLogger(PonyWebAppInitializer.class);
+public class WebAppInitializer implements WebApplicationInitializer {
+    private static Logger LOGGER = Logger.getLogger(WebAppInitializer.class);
 
     @Override
     public void onStartup(ServletContext servletContext) {
