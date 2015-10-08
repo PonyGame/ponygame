@@ -4,11 +4,11 @@
  */
 
 
-function createTable() {
+var gameboard = function() {
     var gameboard = document.getElementById('gameboard');
 
-    for(var i=0;i<11;i++){
-        for (var j=0;j<11;j++) {
+    for( var i = 0; i < 11; i++ ) {
+        for (var j = 0; j < 11; j++) {
             var cell = document.createElement("div");
             cell.id = "cell_" + i + "_" + j;
 
@@ -17,7 +17,7 @@ function createTable() {
                 || (i==1 && j==1) || (i==1 && j==9) 
                 || (i==9 && j==1) || (i==9 && j==9)) {
                 //invisible divs
-                cell.className='card';
+                cell.className = 'card';
             }   else { 
                 //flipable cards
                 cell.className = 'card effect__click';
@@ -32,5 +32,5 @@ function createTable() {
             gameboard.appendChild(cell);
         }
     }
-}
+}();
 
