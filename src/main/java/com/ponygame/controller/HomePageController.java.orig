@@ -1,0 +1,27 @@
+package com.ponygame.controller;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HomePageController {
+    private static final Logger LOGGER = Logger.getLogger(HomePageController.class);
+
+    @Value("${url.login.path}")
+    private String loginUrl;
+
+    @Value("${url.new.room.options}")
+    private String newRoomOptionsUrl;
+
+<<<<<<< HEAD
+    @RequestMapping(value = "${url.root}**")
+=======
+    @RequestMapping(value = "${url.root}/**")
+>>>>>>> 37f43d86fc1eb3eb70f82044f213e6e9f7e4d391
+    public ModelAndView handleHomePage() {
+        return new ModelAndView("index");
+    }
+}
