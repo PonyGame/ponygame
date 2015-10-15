@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://www.springframework.org/schema/security"
+         xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/security
+         http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <http pattern="/resources/js/**" security="none"/>
+    <http pattern="/resources/img/**" security="none"/>
+    <http pattern="/resources/css/**" security="none"/>
+    <http pattern="/resources/fonts/**" security="none"/>
+
+    <http disable-url-rewriting="false">
+        <headers disabled="true"/>
+        <csrf disabled="true"/>
+
+        <intercept-url pattern="/login" access="permitAll"/>
+        <intercept-url pattern="/**" access="hasRole('USER')"/>
+
+        <form-login login-page="/login" authentication-failure-url="/login?error"/>
+
+        <logout logout-url="/j_spring_security_logout"/>
+    </http>
+
+    <authentication-manager>
+        <!-- Add ROOT user as superadmin-->
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin"
+                      authorities="ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+</b:beans>
