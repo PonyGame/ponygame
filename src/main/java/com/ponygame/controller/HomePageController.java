@@ -16,7 +16,7 @@ public class HomePageController {
     @Value("${url.new.room.options}")
     private String newRoomOptionsUrl;
 
-    @RequestMapping(value = "${url.root}/**")
+    @RequestMapping(value = "${url.root}**")
     public ModelAndView handleHomePage() {
         return new ModelAndView("index");
     }
