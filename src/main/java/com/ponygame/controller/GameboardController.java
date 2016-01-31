@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-public class GameboardControllerTemp {
+public class GameboardController {
     
     @RequestMapping(value = "gameboard")
     public ModelAndView handleGameboardView() {

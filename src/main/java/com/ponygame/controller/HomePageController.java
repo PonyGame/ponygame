@@ -13,10 +13,10 @@ public class HomePageController {
     @Value("${url.login.path}")
     private String loginUrl;
 
-    @Value("${url.new.room.options}")
+    @Value("${url.new.room.options}") 
     private String newRoomOptionsUrl;
 
-    @RequestMapping(value = "${url.root}**")
+    @RequestMapping(value = "${url.root}/")
     public ModelAndView handleHomePage() {
         return new ModelAndView("index");
     }

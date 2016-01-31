@@ -8,10 +8,7 @@
          http://www.springframework.org/schema/security
          http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http pattern="/resources/js/**" security="none"/>
-    <http pattern="/resources/img/**" security="none"/>
-    <http pattern="/resources/css/**" security="none"/>
-    <http pattern="/resources/fonts/**" security="none"/>
+    <http pattern="/resources/**" security="none"/>
 
     <http disable-url-rewriting="false">
         <headers disabled="true"/>
